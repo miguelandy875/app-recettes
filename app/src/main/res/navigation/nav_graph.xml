@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/catalogueFragment">
+
+    <fragment
+        android:id="@+id/catalogueFragment"
+        android:name="com.upg.apprecettes.ui.catalogue.CatalogueFragment"
+        android:label="Catalogue"
+        tools:layout="@layout/fragment_catalogue" />
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.upg.apprecettes.ui.detail.DetailRecetteFragment"
+        android:label="Détail"
+        tools:layout="@layout/fragment_detail_recette">
+        <argument
+            android:name="recetteId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ajoutFragment"
+        android:name="com.upg.apprecettes.ui.ajout.AjoutRecetteFragment"
+        android:label="Ajouter"
+        tools:layout="@layout/fragment_ajout_recette" />
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.upg.apprecettes.ui.dashboard.DashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <action
+        android:id="@+id/action_catalogue_to_detail"
+        app:destination="@id/detailFragment" />
+
+    <action
+        android:id="@+id/action_catalogue_to_ajout"
+        app:destination="@id/ajoutFragment" />
+
+    <action
+        android:id="@+id/action_detail_to_ajout"
+        app:destination="@id/ajoutFragment" />
+
+</navigation>
